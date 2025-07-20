@@ -100,9 +100,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ backendPort = "3000" }) =
         </div>
       </header>
 
-      {/* Fade effect below header */}
-      <div className="fixed top-[89px] left-0 right-0 h-6 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none"></div>
-
       {/* Scrollable Chat Area */}
       <div className="flex-1 overflow-y-auto pt-24 pb-24">
         <div className="max-w-4xl mx-auto px-6 py-6">
