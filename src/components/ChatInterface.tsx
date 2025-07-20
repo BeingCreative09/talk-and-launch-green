@@ -101,7 +101,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ backendPort = "3000" }) =
       </header>
 
       {/* Scrollable Chat Area */}
-      <div className="flex-1 overflow-y-auto pt-24 pb-24">
+      <div className="flex-1 overflow-y-auto pt-24 pb-24 scrollbar-hide">
         <div className="max-w-4xl mx-auto px-6 py-6">
           {/* Initial Greeting */}
           {!hasStartedChat && (
