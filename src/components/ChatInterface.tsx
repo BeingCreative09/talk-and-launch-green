@@ -103,30 +103,15 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ backendPort = "3000" }) =
       {/* Scrollable Chat Area */}
       <div className="flex-1 overflow-y-auto pb-24">
         <div className="max-w-4xl mx-auto px-6 py-6">
-          {/* Initial Greeting and Samples */}
+          {/* Initial Greeting */}
           {!hasStartedChat && (
-            <div className="space-y-6">
-              <div className="flex items-start space-x-3 mb-8">
-                <MongoLeafIcon size={24} className="mt-1" />
-                <div className="flex-1">
-                  <div className="text-foreground">
-                    <p className="text-lg">Hello there!👋</p>
-                    <p className="text-muted-foreground mt-1">How can I help you today?</p>
-                  </div>
+            <div className="flex items-start space-x-3 mb-8">
+              <MongoLeafIcon size={24} className="mt-1" />
+              <div className="flex-1">
+                <div className="text-foreground">
+                  <p className="text-lg">Hello there!👋</p>
+                  <p className="text-muted-foreground mt-1">How can I help you today?</p>
                 </div>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                {sampleQuestions.map((question, index) => (
-                  <Button
-                    key={index}
-                    variant="outline"
-                    onClick={() => handleSampleClick(question)}
-                    className="text-left h-auto py-3 px-4 whitespace-normal"
-                  >
-                    {question}
-                  </Button>
-                ))}
               </div>
             </div>
           )}
@@ -195,8 +180,26 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ backendPort = "3000" }) =
       </div>
 
       {/* Fixed Bottom Input */}
-      <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4">
-        <div className="max-w-4xl mx-auto">
+      <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border">
+        {/* Sample Questions - Only show when chat hasn't started */}
+        {!hasStartedChat && (
+          <div className="max-w-4xl mx-auto px-4 pt-3">
+            <div className="flex flex-wrap gap-2 mb-3">
+              {sampleQuestions.map((question, index) => (
+                <Button
+                  key={index}
+                  variant="outline"
+                  onClick={() => handleSampleClick(question)}
+                  className="text-left h-auto py-2 px-3 text-sm whitespace-normal"
+                >
+                  {question}
+                </Button>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        <div className="max-w-4xl mx-auto p-4">
           <form onSubmit={handleSubmit} className="flex gap-2">
             <Input
               value={inputValue}
