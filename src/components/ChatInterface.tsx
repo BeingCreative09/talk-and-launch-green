@@ -200,17 +200,17 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ backendPort = "3000" }) =
         )}
         
         <div className="max-w-4xl mx-auto p-4">
-          <form onSubmit={handleSubmit} className="flex gap-2">
+          <form onSubmit={handleSubmit} className="relative">
             <Input
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="ask me anything about MongoDB..."
-              className="flex-1 h-12 text-base px-4"
+              className="w-full h-16 text-base px-6 pr-16 rounded-full border-2 border-border focus:border-primary"
               disabled={isLoading}
             />
             <Button 
               type="submit" 
-              className="h-12 px-6 bg-send-button hover:bg-send-button/90 text-white"
+              className="absolute right-2 top-2 h-12 w-12 bg-send-button hover:bg-send-button/90 text-white rounded-full p-0"
               disabled={isLoading || !inputValue.trim()}
             >
               <Send className="w-5 h-5" />
