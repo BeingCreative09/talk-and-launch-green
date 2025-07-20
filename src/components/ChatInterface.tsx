@@ -93,32 +93,15 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ backendPort = "3000" }) =
       {/* Fixed Header */}
       <header className="bg-background border-b border-border p-6 flex-shrink-0">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
+          <div className="flex items-center justify-center">
             <MongoLeafIcon size={32} className="mr-3" />
             <h1 className="text-2xl font-bold text-primary">MongoMuse.ai</h1>
           </div>
-          
-          <form onSubmit={handleSubmit} className="flex gap-2">
-            <Input
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              placeholder="ask me anything about MongoDB..."
-              className="flex-1 h-12 text-base px-4"
-              disabled={isLoading}
-            />
-            <Button 
-              type="submit" 
-              className="h-12 px-6 bg-send-button hover:bg-send-button/90 text-white"
-              disabled={isLoading || !inputValue.trim()}
-            >
-              <Send className="w-5 h-5" />
-            </Button>
-          </form>
         </div>
       </header>
 
       {/* Scrollable Chat Area */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto pb-24">
         <div className="max-w-4xl mx-auto px-6 py-6">
           {/* Initial Greeting and Samples */}
           {!hasStartedChat && (
@@ -208,6 +191,28 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ backendPort = "3000" }) =
           )}
           
           <div ref={messagesEndRef} />
+        </div>
+      </div>
+
+      {/* Fixed Bottom Input */}
+      <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4">
+        <div className="max-w-4xl mx-auto">
+          <form onSubmit={handleSubmit} className="flex gap-2">
+            <Input
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="ask me anything about MongoDB..."
+              className="flex-1 h-12 text-base px-4"
+              disabled={isLoading}
+            />
+            <Button 
+              type="submit" 
+              className="h-12 px-6 bg-send-button hover:bg-send-button/90 text-white"
+              disabled={isLoading || !inputValue.trim()}
+            >
+              <Send className="w-5 h-5" />
+            </Button>
+          </form>
         </div>
       </div>
     </div>
