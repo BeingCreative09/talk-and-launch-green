@@ -205,12 +205,12 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ backendPort = "3000" }) =
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="ask me anything about MongoDB..."
-              className="w-full h-16 text-base px-6 pr-16 rounded-full border-2 border-border focus:border-primary"
+              className="w-full h-16 text-base px-6 pr-16 rounded-lg border-2 border-border focus:border-primary focus:outline-none focus:ring-0"
               disabled={isLoading}
             />
             <Button 
               type="submit" 
-              className="absolute right-2 top-2 h-12 w-12 bg-send-button hover:bg-send-button/90 text-white rounded-full p-0"
+              className="absolute right-2 top-2 h-12 w-12 bg-send-button hover:bg-send-button/90 text-white rounded-lg p-0"
               disabled={isLoading || !inputValue.trim()}
             >
               <Send className="w-5 h-5" />
