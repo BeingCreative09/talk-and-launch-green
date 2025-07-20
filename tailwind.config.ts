@@ -28,6 +28,9 @@ export default {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
+				'send-button': 'hsl(var(--send-button))',
+				'user-message': 'hsl(var(--user-message))',
+				'agent-message': 'hsl(var(--agent-message))',
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
